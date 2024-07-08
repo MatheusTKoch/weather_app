@@ -8,8 +8,9 @@
 
 <style scoped>
     .bkg {
-        background-image: url('https://images.hdqwalls.com/download/tranquility-minimal-4k-6q-3840x2400.jpg');
+        background-image: url("wallpaperDusk.jpg");
         background-repeat: no-repeat;
-
+        background-size: cover;
+        background-position: bottom center, 50%, 50%;
     }
 </style>
