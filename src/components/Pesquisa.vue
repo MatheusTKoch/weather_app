@@ -4,6 +4,7 @@
 
 <template>
   <div class="pesquisa">
+    <img class="search" alt="">
     <input type="text" placeholder="Busca..." class="input">
   </div>
 </template>
@@ -15,6 +16,12 @@
     top: 25%;
   }
 
+  .search {
+    background-image: url('../components/icons/search.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .input {
     width: 150%;
     border-style: outset;
@@ -22,6 +29,7 @@
     border-color: transparent;
     border-radius: 10px;
     height: 30px;
+    text-indent: 30px;
   }
 
   .input:focus {
