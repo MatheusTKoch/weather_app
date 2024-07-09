@@ -3,10 +3,15 @@
 </script>
 
 <template>
-  <div class="titulo">Weather App</div>
+  <div class="header"></div>
+    <div class="titulo">Weather App</div>
+  
 </template>
 
 <style scoped>
+  .header {
+    color: black;
+  }
   .titulo {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
