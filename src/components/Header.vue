@@ -15,12 +15,13 @@
   .titulo {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 200;
     font-style: normal;
     font-variation-settings: "wdth" 86.5;
-    font-size: x-large;
+    font-size:xx-large;
     position: absolute;
     left: 2%;
     top: 2%;
+    color: whitesmoke;
   }
 </style>
