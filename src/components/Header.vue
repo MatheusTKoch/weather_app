@@ -1,10 +1,9 @@
 <script setup>
-  import backgroundDusk from "./icons/BackgroundDusk.vue";
+
 </script>
 
 <template>
   <div class="titulo">Weather App</div>
-  <backgroundDusk></backgroundDusk>
 </template>
 
 <style scoped>
