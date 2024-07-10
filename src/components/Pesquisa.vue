@@ -12,7 +12,7 @@
 <style scoped>
   .pesquisa {
     position: absolute;
-    left: 40%;
+    left: 42%;
     top: 25%;
   }
 
