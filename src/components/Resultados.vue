@@ -1,6 +1,10 @@
 <template>
   <div class="card">
-    <div class="resultados">Resultados</div>
+    <div class="resultados">
+      <div>Cidade: </div>
+      <div>Tempo Atual: </div>
+      <div>Temperatura Minima </div>
+    </div>
   </div>
 </template>
 
