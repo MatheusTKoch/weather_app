@@ -1,9 +1,13 @@
+<script>
+
+</script>
+
 <template>
   <div class="card">
     <div class="resultados">
       <div>Cidade: </div>
       <div>Temperatura Atual: </div>
-      <div>Temperatura Mínima </div>
+      <div>Temperatura Mínima: </div>
       <div>Sensação Térmica: </div>
     </div>
   </div>
@@ -12,8 +16,9 @@
 <style scoped>
   .resultados {
     position: absolute;
-    bottom: 25%;
-    left: 43%;
+    bottom: 30%;
+    left: 15%;
+    padding: 12%;
   }
 
   .card {
