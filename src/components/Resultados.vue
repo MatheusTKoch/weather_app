@@ -2,8 +2,9 @@
   <div class="card">
     <div class="resultados">
       <div>Cidade: </div>
-      <div>Tempo Atual: </div>
-      <div>Temperatura Minima </div>
+      <div>Temperatura Atual: </div>
+      <div>Temperatura Mínima </div>
+      <div>Sensação Térmica: </div>
     </div>
   </div>
 </template>
