@@ -6,16 +6,21 @@
   <div class="header"></div>
   <div class="titulo">Weather App</div>
   <div class="search">
-    <img src="../components/icons/search.png" alt="">
+    <img src="../components/icons/search.png" alt="" class="image">
   </div>
 </template>
 
 <style scoped>
   .search {
     position: absolute;
-    top: 28%;
-    left: 42%;
+    top: 27.75%;
+    left: 42.5%;
     z-index: 1;
+    width: 1%;
+  }
+
+  .image {
+    width: 125%;
   }
 
   .header {
@@ -28,6 +33,7 @@
     background-color: rgba(255, 255, 255, 0.2); 
     padding-bottom: 5%;
   }
+
   .titulo {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
