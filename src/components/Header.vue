@@ -4,11 +4,20 @@
 
 <template>
   <div class="header"></div>
-    <div class="titulo">Weather App</div>
-  
+  <div class="titulo">Weather App</div>
+  <div class="search">
+    <img src="../components/icons/search.png" alt="">
+  </div>
 </template>
 
 <style scoped>
+  .search {
+    position: absolute;
+    top: 28%;
+    left: 42%;
+    z-index: 1;
+  }
+
   .header {
     position: absolute;
     width: 100vw;
