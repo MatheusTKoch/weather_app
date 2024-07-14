@@ -1,11 +1,15 @@
 <script setup>
+import { defineProps } from 'vue';
 
+const props = defineProps({
+  cidade: String,
+});
 </script>
 
 <template>
   <div class="card">
     <div class="resultados">
-      <div>Cidade: </div>
+      <div>Cidade: {{ cidade }}</div>
       <div>Temperatura Atual: </div>
       <div>Temperatura Mínima: </div>
       <div>Sensação Térmica: </div>
