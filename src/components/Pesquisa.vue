@@ -1,11 +1,13 @@
 <script setup>
+import { ref } from "vue";
 
+const cid = ref(null);
 </script>
 
 <template>
   <div class="pesquisa">
     <img class="search" alt="">
-    <input type="text" placeholder="Busca..." class="input">
+    <input type="text" placeholder="Busca..." class="input" v-model="cid" @keypress.enter="console.log(cid)">
   </div>
 </template>
 
