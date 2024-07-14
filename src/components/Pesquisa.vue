@@ -2,12 +2,17 @@
 import { ref } from "vue";
 
 const cid = ref(null);
+const emit = defineEmits(['cidade']);
+
+function pesquisaCidade(param) {
+  emit("cidade", param);
+}
 </script>
 
 <template>
   <div class="pesquisa">
     <img class="search" alt="">
-    <input type="text" placeholder="Busca..." class="input" v-model="cid" @keypress.enter="console.log(cid)">
+    <input type="text" placeholder="Busca..." class="input" v-model="cid" @keypress.enter="pesquisaCidade(cid)">
   </div>
 </template>
 
