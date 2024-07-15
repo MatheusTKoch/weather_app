@@ -1,11 +1,16 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 const cid = ref(null);
+const router = useRouter();
 const emit = defineEmits(["cidade"]);
 
 function pesquisaCidade() {
   emit("cidade", cid.value);
+  if (cid.value) {
+    router.push({ name: "Resultado" , params: { cidade: cid.value }});
+  }
 }
 </script>
 
