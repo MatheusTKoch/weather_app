@@ -8,7 +8,8 @@ const props = defineProps({
 
 <template>
   <div class="card">
-    <div class="resultados">
+    <div class="resultados" v-if="cidade == null">Digite uma cidade acima para trazer os dados da previsao!</div>
+    <div class="resultados" v-else>
       <div>Cidade: {{ cidade }}</div>
       <div>Temperatura Atual: </div>
       <div>Temperatura Mínima: </div>
