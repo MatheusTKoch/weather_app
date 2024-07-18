@@ -30,7 +30,6 @@ function pesquisaCidade() {
 
   .search {
     background-image: url('../components/icons/search.png');
-    background-repeat: no-repeat;
     background-size: cover;
   }
 
@@ -40,8 +39,9 @@ function pesquisaCidade() {
     border-width: 1px;
     border-color: transparent;
     border-radius: 10px;
-    height: 30px;
-    text-indent: 30px;
+    height: 32px;
+    text-indent: 34px;
+    font-size: 18px;
   }
 
   .input:focus {
