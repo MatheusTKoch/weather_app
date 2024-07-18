@@ -4,7 +4,9 @@
 
 <template>
   <div class="header"></div>
-  <div class="titulo">Weather App</div>
+  <RouterLink to="/">
+    <div class="titulo">Weather App</div>
+  </RouterLink>
   <div class="search">
     <img src="../components/icons/search.png" alt="" class="image">
   </div>
