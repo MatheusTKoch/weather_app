@@ -29,7 +29,7 @@ const props = defineProps({
   .card {
     position: absolute;
     bottom: 20%;
-    left: 42%;
+    left: 44%;
     width: 250px; 
     box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2); 
     height: 300px; 
