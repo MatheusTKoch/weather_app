@@ -1,19 +1,37 @@
 <script setup>
-import { defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import { useRoute } from 'vue-router';
 
-const props = defineProps({
-  cidade: String,
+const route = useRoute();
+const weatherData = ref(null);
+
+onMounted(async () => {
+  const city = route.params.cidade;
+  try {
+    const response = await axios.get(`http://localhost:5173/weather`, {
+      params: { city }
+    });
+    weatherData.value = response.data;
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+  }
 });
+// import { defineProps } from 'vue';
+
+// const props = defineProps({
+//   cidade: String,
+// });
 </script>
 
 <template>
   <div class="card">
-    <div class="resultados" v-if="cidade == null">Digite uma cidade acima para trazer os dados da previsão atual!</div>
+    <div class="resultados" v-if="weatherData == null">Digite uma cidade acima para trazer os dados da previsão atual!</div>
     <div class="resultados" v-else>
-      <div>Cidade: {{ cidade }}</div>
-      <div>Temperatura Atual: </div>
-      <div>Temperatura Mínima: </div>
-      <div>Sensação Térmica: </div>
+      <div>Cidade: {{ weatherData.name }}</div>
+      <div>Temperatura Atual: {{ weatherData.description }} </div>
+      <div>Temperatura Mínima: {{ weatherData.min_temp }} </div>
+      <div>Sensação Térmica: {{ weatherData.feels_like }}</div>
     </div>
   </div>
 </template>
