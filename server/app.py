@@ -1,20 +1,21 @@
-from flask import Flask, jsonify # type: ignore
-from flask_cors import CORS # type: ignore
+from flask import Flask, jsonify; 
+import requests;
+from flask_cors import CORS;
+import os;
+from dotenv import load_dotenv;
 
 
-# instantiate the app
 app = Flask(__name__)
 app.config.from_object(__name__)
-
-# enable CORS
+load_dotenv();
+API_KEY = os.getenv('OPEN_WEATHER_KEY');
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 
-# sanity check route
 @app.route('/ping', methods=['GET'])
 def ping_pong():
     return jsonify('pong!')
 
 
-if __name__ == '__main__':
+if __name__ == '__app__':
     app.run()
