@@ -16,7 +16,7 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 def ping_pong():
     return jsonify('pong!')
 
-@app.route('/weather', methods=['GET'])
+@app.route('/resultado', methods=['GET'])
 def get_weather():
     city_name = requests.args.get('city')
     state_code = requests.args.get('state_code', '')

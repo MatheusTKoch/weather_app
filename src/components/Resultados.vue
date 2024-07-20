@@ -9,7 +9,7 @@ const weatherData = ref(null);
 onMounted(async () => {
   const city = route.params.cidade;
   try {
-    const response = await axios.get(`http://localhost:5173/weather`, {
+    const response = await axios.get(`http://localhost:5173/resultado`, {
       params: { city }
     });
     weatherData.value = response.data;
@@ -17,11 +17,6 @@ onMounted(async () => {
     console.error('Error fetching weather data:', error);
   }
 });
-// import { defineProps } from 'vue';
-
-// const props = defineProps({
-//   cidade: String,
-// });
 </script>
 
 <template>
