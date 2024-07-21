@@ -9,7 +9,7 @@ const weatherData = ref(null);
 onMounted(async () => {
   const city = route.params.cidade;
   try {
-    const response = await axios.get(`http://localhost:5000/resultado`, {
+    const response = await axios.get('http://localhost:5000/resultado', {
       params: { city }
     });
     weatherData.value = response.data;
