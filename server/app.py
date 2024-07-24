@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 load_dotenv()
 API_KEY = os.getenv('OPEN_WEATHER_KEY')
-CORS(app, resources={r'/*': {'origins': '*'}})
+CORS(app)
 
 
 @app.route('/ping', methods=['GET'])
@@ -50,5 +50,5 @@ def get_weather():
     else:
         return jsonify({"error": "Unable to fetch data from the API"}), 400
 
-if __name__ == '__app__':
-    app.run()
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
