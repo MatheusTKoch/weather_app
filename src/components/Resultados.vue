@@ -13,6 +13,7 @@ onMounted(async () => {
       params: { city }
     });
     weatherData.value = response.data;
+    console.log(weatherData)
   } catch (error) {
     console.error('Error fetching weather data:', error);
   }
