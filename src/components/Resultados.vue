@@ -1,12 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const weatherData = ref(null);
 
-onMounted(async () => {
+const pesquisaData = async () => {
   const city = route.params.cidade;
   try {
     const response = await axios.get('http://localhost:5000/resultado', {
@@ -17,7 +17,13 @@ onMounted(async () => {
   } catch (error) {
     console.error('Error fetching weather data:', error);
   }
-});
+};
+
+watch(() => route.params.cidade, (novaCidade) => {
+  pesquisaData(novaCidade);
+})
+
+pesquisaData(route.params.cidade);
 </script>
 
 <template>
