@@ -9,7 +9,7 @@ const emit = defineEmits(["cidade"]);
 function pesquisaCidade() {
   emit("cidade", cid.value);
   if (cid.value) {
-    router.push({ name: "Resultado" , params: { cidade: cid.value }});
+    router.push({ name: "Resultado" , params: { cidade: cid.value.toLowerCase() }});
   }
 }
 </script>
