@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PesquisaView from '@/views/PesquisaView.vue'
 import App from '@/App.vue'
 import Resultados from '@/components/Resultados.vue'
 
@@ -8,6 +7,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'Menu',
       component: App,
     },
     {
@@ -17,6 +17,14 @@ const router = createRouter({
       props: true,
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.name === 'Resultado' && from.name === null) {
+    next({ name: 'Menu'});
+  } else {
+    next();
+  }
 })
 
 export default router
