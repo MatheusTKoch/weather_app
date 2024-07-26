@@ -30,9 +30,9 @@ watch(() => route.params.cidade, (novaCidade) => {
     <div class="resultados" v-if="weatherData == null">Digite uma cidade acima para trazer os dados da previsão atual!</div>
     <div class="resultados" v-else>
       <div>Cidade: {{ weatherData.name }}</div>
-      <div>Temperatura Atual: {{ weatherData.description }} </div>
-      <div>Temperatura Mínima: {{ weatherData.min_temp }} </div>
-      <div>Sensação Térmica: {{ weatherData.feels_like }}</div>
+      <div>Condição: {{ weatherData.description[0].toUpperCase() + weatherData.description.slice(1) }}</div>
+      <div>Temperatura Mínima: {{ weatherData.min_temp }} °C</div>
+      <div>Sensação Térmica: {{ weatherData.feels_like }} °C</div>
     </div>
   </div>
 </template>
