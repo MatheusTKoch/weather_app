@@ -23,7 +23,6 @@ watch(() => route.params.cidade, (novaCidade) => {
   pesquisaData(novaCidade);
 })
 
-pesquisaData(route.params.cidade);
 </script>
 
 <template>
