@@ -32,5 +32,7 @@
 
     .icon_git:hover {
         outline: 2px solid white;
+        border-radius: 100%;
+        outline-offset: -2px;
     }
 </style>
