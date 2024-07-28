@@ -28,7 +28,7 @@
 
     .icon_git {
         position: absolute;
-        left: 43%;
+        left: 47%;
         bottom: 1%;
         height: 6%;
     }
@@ -41,7 +41,7 @@
 
     .icon_linkedin {
         position: absolute;
-        left: 47%;
+        left: 51%;
         bottom: 1%;
         height: 6%;
     }
