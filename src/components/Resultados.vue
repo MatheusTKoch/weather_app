@@ -27,8 +27,8 @@ watch(() => route.params.cidade, (novaCidade) => {
 
 <template>
   <div class="card">
-    <div class="resultados" v-if="weatherData == null">Digite uma cidade acima para trazer os dados da previsão atual!</div>
-    <div class="resultados" v-else>
+    <div class="resultados_1" v-if="weatherData == null">Digite uma cidade acima para trazer os dados da previsão atual!</div>
+    <div class="resultados_2" v-else>
       <div>Cidade: {{ weatherData.name }}</div>
       <div>Condição: {{ weatherData.description[0].toUpperCase() + weatherData.description.slice(1) }}</div>
       <div>Temperatura Mínima: {{ weatherData.min_temp }} °C</div>
@@ -38,9 +38,18 @@ watch(() => route.params.cidade, (novaCidade) => {
 </template>
 
 <style scoped>
-  .resultados {
+  .resultados_1 {
     position: absolute;
     bottom: 22%;
+    left: 6%;
+    padding: 12%;
+    font-size: 22px;
+    text-align: start;
+  }
+
+  .resultados_2 {
+    position: absolute;
+    bottom: 10%;
     left: 6%;
     padding: 12%;
     font-size: 22px;
