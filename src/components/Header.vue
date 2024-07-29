@@ -1,5 +1,20 @@
 <script setup>
+import { ref, onMounted} from 'vue';
 
+const currentTime = ref("");
+
+const updateTime = () => {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  currentTime.value = `${hours}:${minutes}:${seconds}`;
+};
+
+onMounted(() => {
+  updateTime();
+  setInterval(updateTime, 1000);
+});
 </script>
 
 <template>
@@ -7,6 +22,7 @@
   <RouterLink to="/">
     <div class="titulo">Weather App</div>
   </RouterLink>
+  <div class="clock">{{ currentTime }}</div>
   <div class="search">
     <img src="../components/icons/search.png" alt="" class="image">
   </div>
