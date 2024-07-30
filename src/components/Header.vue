@@ -7,8 +7,7 @@ const updateTime = () => {
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, '0');
   const minutes = now.getMinutes().toString().padStart(2, '0');
-  const seconds = now.getSeconds().toString().padStart(2, '0');
-  currentTime.value = `${hours}:${minutes}:${seconds}`;
+  currentTime.value = `${hours}:${minutes}`;
 };
 
 onMounted(() => {
@@ -63,5 +62,15 @@ onMounted(() => {
     left: 2%;
     top: 2%;
     color: whitesmoke;
+  }
+
+  .clock {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    font-weight: 200;
+    font-size: xx-large;
+    color: whitesmoke;
+    font-family: "Open Sans", sans-serif;
   }
 </style>
