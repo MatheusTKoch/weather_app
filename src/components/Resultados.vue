@@ -5,30 +5,37 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const weatherData = ref(null);
+const isLoading = ref(false);
 
-const pesquisaData = async () => {
-  const city = route.params.cidade;
+const pesquisaData = async (city) => {
+  isLoading.value = true;
+  weatherData.value = null;
   try {
     const response = await axios.get('http://localhost:5000/resultado', {
       params: { city }
     });
     weatherData.value = response.data;
-    console.log(weatherData)
+    console.log(weatherData);
   } catch (error) {
     console.error('Error fetching weather data:', error);
+  } finally {
+    isLoading.value = false;
   }
 };
 
 watch(() => route.params.cidade, (novaCidade) => {
-  pesquisaData(novaCidade);
+  if (novaCidade) {
+    pesquisaData(novaCidade);
+  }
 });
 
 </script>
 
 <template>
   <div class="card">
-    <div class="resultados_1" v-if="weatherData == null">Digite uma cidade acima para trazer os dados da previsão atual!</div>
-    <div class="resultados_2" v-else>
+    <div class="resultados_1" v-if="weatherData == null && !isLoading">Digite uma cidade acima para trazer os dados da previsão atual!</div>
+    <div class="loading" v-if="isLoading">Carregando...</div>
+    <div class="resultados_2" v-else-if="weatherData">
       <div>Cidade: {{ weatherData.name }}</div>
       <div>Condição: {{ weatherData.description[0].toUpperCase() + weatherData.description.slice(1) }}</div>
       <div>Temperatura Mínima: {{ weatherData.min_temp }} °C</div>
@@ -68,5 +75,14 @@ watch(() => route.params.cidade, (novaCidade) => {
     background-color: rgba(255, 255, 255, 0.2); 
     padding: 10px; 
     text-align: center; 
+  }
+
+  .loading {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    text-align: center;
   }
 </style>
