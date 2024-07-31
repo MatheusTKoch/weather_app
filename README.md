@@ -9,7 +9,6 @@ Weather App é uma aplicação web que permite aos usuários buscar informaçõe
 - [Arquitetura do Projeto](#arquitetura-do-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ## Instalação
 
@@ -79,23 +78,41 @@ Abra seu navegador e acesse `http://localhost:5173`.
 ## Arquitetura do Projeto
 
 weather-app/
+
 ├── client/ # Código fonte do frontend (Vue.js)
+
 │ ├── public/
+
 │ ├── src/
+
 │ │ ├── assets/
+
 │ │ ├── components/
+
 │ │ │ ├── Pesquisa.vue
+
 │ │ │ ├── Resultados.vue
+
 │ │ ├── views/
+
 │ │ │ ├── PesquisaView.vue
+
 │ │ ├── App.vue
+
 │ │ ├── main.js
+
 │ ├── package.json
+
 │ ├── vite.config.js
+
 ├── server/ # Código fonte do backend (Flask)
+
 │ ├── app.py
+
 │ ├── requirements.txt
+
 │ ├── .env
+
 ├── README.md
 
 ## Tecnologias Utilizadas
@@ -124,6 +141,3 @@ Se você deseja contribuir com este projeto, siga os passos abaixo:
 4. Faça um push para a branch (`git push origin feature/nova-feature`).
 5. Abra um Pull Request.
 
-## Licença
-
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais informações.
