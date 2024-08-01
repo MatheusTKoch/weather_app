@@ -5,10 +5,15 @@ import os
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-app.config.from_object(__name__)
+CORS(app)
+
+# Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 API_KEY = os.getenv('OPEN_WEATHER_KEY')
-CORS(app)
+
+# Verificar se a chave da API está carregada corretamente
+if not API_KEY:
+    raise ValueError("A chave da API não foi encontrada. Verifique se o arquivo .env está configurado corretamente.")
 
 @app.route('/ping', methods=['GET'])
 def ping_pong():
@@ -22,12 +27,13 @@ def get_weather():
     limit = request.args.get('limit', 1)
     lang = request.args.get('lang', 'pt_br')
 
-    print(f"Parametros - city: {city_name}, state_code: {state_code}, country_code: {country_code}, limit: {limit}, lang: {lang}")
+    print(f"Parâmetros - city: {city_name}, state_code: {state_code}, country_code: {country_code}, limit: {limit}, lang: {lang}")
 
     if not city_name:
         return jsonify({"error": "City name is required"}), 400
 
     get_string = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name},{state_code},{country_code}&limit={limit}&appid={API_KEY}"
+    print(f"URL de solicitação: {get_string}")
     getCall = requests.get(get_string)
     
     if getCall.ok:
@@ -40,6 +46,7 @@ def get_weather():
         longitude = responseCall[0]['lon']
 
         forecast_string = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={API_KEY}&units=metric&lang={lang}"
+        print(f"URL de solicitação de previsão: {forecast_string}")
         forecastCall = requests.get(forecast_string)
         
         if forecastCall.ok:
@@ -57,8 +64,10 @@ def get_weather():
                 "description": description
             })
         else:
+            print(f"Erro na solicitação de previsão: {forecastCall.text}")
             return jsonify({"error": "Unable to fetch weather data"}), 400
     else:
+        print(f"Erro na solicitação de cidade: {getCall.text}")
         return jsonify({"error": "Unable to fetch city data"}), 400
 
 if __name__ == '__main__':
