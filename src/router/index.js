@@ -20,7 +20,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.name === 'Resultado' && from.name === null) {
+  if (to.name === 'Resultado' && !from.name === null) {
     next({ name: 'Menu'});
   } else {
     next();
