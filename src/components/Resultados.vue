@@ -19,7 +19,7 @@ const pesquisaData = async (city) => {
     console.log(weatherData);
   } catch (error) {
     if (error.response.status == "404") {
-      cidadeNaoEncontrada = true;
+      cidadeNaoEncontrada.value = true;
     }
     console.error('Error fetching weather data:', error);
   } finally {
@@ -37,9 +37,9 @@ watch(() => route.params.cidade, (novaCidade) => {
 
 <template>
   <div class="card">
-    <div class="resultados_1" v-if="weatherData == null && !isLoading">Digite uma cidade acima para trazer os dados da previsão atual!</div>
+    <div class="resultados_1" v-if="weatherData == null && !isLoading && cidadeNaoEncontrada == false">Digite uma cidade acima para trazer os dados da previsão atual!</div>
     <div class="loading" v-if="isLoading">Carregando...</div>
-    <div class="loading" v-if="cidadeNaoEncontrada == true">Cidade Nao encontrada</div>
+    <div class="cid_nao_encontrada" v-if="cidadeNaoEncontrada">Cidade não encontrada, por favor pesquise novamente!</div>
     <div class="resultados_2" v-else-if="weatherData">
       <div>Cidade: {{ weatherData.name }}</div>
       <div>Condição: {{ weatherData.description[0].toUpperCase() + weatherData.description.slice(1) }}</div>
@@ -85,6 +85,15 @@ watch(() => route.params.cidade, (novaCidade) => {
   .loading {
     position: absolute;
     bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .cid_nao_encontrada {
+    position: absolute;
+    bottom: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 22px;
