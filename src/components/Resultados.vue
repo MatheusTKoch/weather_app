@@ -6,6 +6,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const weatherData = ref(null);
 const isLoading = ref(false);
+const cidadeNaoEncontrada = ref(false);
 
 const pesquisaData = async (city) => {
   isLoading.value = true;
@@ -17,6 +18,9 @@ const pesquisaData = async (city) => {
     weatherData.value = response.data;
     console.log(weatherData);
   } catch (error) {
+    if (error.response.status == "404") {
+      cidadeNaoEncontrada = true;
+    }
     console.error('Error fetching weather data:', error);
   } finally {
     isLoading.value = false;
@@ -35,6 +39,7 @@ watch(() => route.params.cidade, (novaCidade) => {
   <div class="card">
     <div class="resultados_1" v-if="weatherData == null && !isLoading">Digite uma cidade acima para trazer os dados da previsão atual!</div>
     <div class="loading" v-if="isLoading">Carregando...</div>
+    <div class="loading" v-if="cidadeNaoEncontrada == true">Cidade Nao encontrada</div>
     <div class="resultados_2" v-else-if="weatherData">
       <div>Cidade: {{ weatherData.name }}</div>
       <div>Condição: {{ weatherData.description[0].toUpperCase() + weatherData.description.slice(1) }}</div>
