@@ -24,9 +24,9 @@ const pesquisaData = async (city) => {
     } else if (response.value.description == "garoa"){
       condicao.value = "garoa";
     } else if (response.value.description == "neve"){
-      condicao.value = "neve"
+      condicao.value = "neve";
     } else if (response.value.description == "céu limpo"){
-      condicao.value = "céu limpo"
+      condicao.value = "céu limpo";
     }
     console.log(response.data.description);
   } catch (error) {
