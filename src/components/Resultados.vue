@@ -17,21 +17,22 @@ const pesquisaData = async (city) => {
       params: { city }
     });
     weatherData.value = response.data;
-    if (response.data.description == "algumas nuvens") {
+    if (response.data.description = "algumas nuvens") {
       condicao.value = "algumas nuvens";
-    } else if (response.value.description == "tempestade com chuva"){
+    } else if (response.value.description = "tempestade com chuva"){
       condicao.value = "tempestade com chuva";
-    } else if (response.value.description == "garoa"){
+    } else if (response.value.description = "garoa"){
       condicao.value = "garoa";
-    } else if (response.value.description == "neve"){
+    } else if (response.value.description = "neve"){
       condicao.value = "neve";
-    } else if (response.value.description == "céu limpo"){
+    } else if (response.value.description = "céu limpo"){
       condicao.value = "céu limpo";
-    } else if (response.value.description == "nublado"){
+    } else if (response.value.description = "nublado"){
       condicao.value = "nublado";
     }
     console.log(response.data.description);
   } catch (error) {
+    console.log(error)
     if (error && error.response.status == "404") {
       cidadeNaoEncontrada.value = true;
     }
