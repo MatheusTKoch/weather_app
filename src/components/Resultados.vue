@@ -20,9 +20,11 @@ const pesquisaData = async (city) => {
     if (response.data.description == "algumas nuvens") {
       condicao.value = "algumas nuvens";
     } else if (response.value.description == "tempestade com chuva"){
-      condicao.value = "tempestade com chuva"
+      condicao.value = "tempestade com chuva";
     } else if (response.value.description == "garoa"){
-      condicao.value = "garoa"
+      condicao.value = "garoa";
+    } else if (response.value.description == "neve"){
+      condicao.value = "neve"
     }
     console.log(response.data.description);
   } catch (error) {
@@ -54,6 +56,7 @@ watch(() => route.params.cidade, (novaCidade) => {
         <img v-if="condicao == 'algumas nuvens'" alt="☁️">
         <img v-else-if="condicao == 'tempestade com chuva'" alt="⛈️">
         <img v-else-if="condicao == 'garoa'" alt="🌧️">
+        <img v-else-if="condicao == 'neve'" alt="🌨️">
       </div>
       <div>Temperatura Mínima: {{ weatherData.min_temp }} °C</div>
       <div>Sensação Térmica: {{ weatherData.feels_like }} °C</div>
