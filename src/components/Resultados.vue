@@ -7,6 +7,7 @@ const route = useRoute();
 const weatherData = ref(null);
 const isLoading = ref(false);
 const cidadeNaoEncontrada = ref(false);
+const condicao = ref(null);
 
 const pesquisaData = async (city) => {
   isLoading.value = true;
@@ -16,7 +17,8 @@ const pesquisaData = async (city) => {
       params: { city }
     });
     weatherData.value = response.data;
-    console.log(weatherData);
+    if (response.data.description == "algumas nuves")
+    console.log(response.data.description);
   } catch (error) {
     if (error.response.status == "404") {
       cidadeNaoEncontrada.value = true;
@@ -42,7 +44,9 @@ watch(() => route.params.cidade, (novaCidade) => {
     <div class="cid_nao_encontrada" v-if="cidadeNaoEncontrada">Cidade não encontrada, por favor pesquise novamente!</div>
     <div class="resultados_2" v-else-if="weatherData">
       <div>Cidade: {{ weatherData.name }}</div>
-      <div>Condição: {{ weatherData.description[0].toUpperCase() + weatherData.description.slice(1) }}</div>
+      <div>Condição: {{ weatherData.description[0].toUpperCase() + weatherData.description.slice(1) }}
+        <img alt="😀">
+      </div>
       <div>Temperatura Mínima: {{ weatherData.min_temp }} °C</div>
       <div>Sensação Térmica: {{ weatherData.feels_like }} °C</div>
     </div>
