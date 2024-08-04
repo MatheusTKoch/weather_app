@@ -25,6 +25,8 @@ const pesquisaData = async (city) => {
       condicao.value = "garoa";
     } else if (response.value.description == "neve"){
       condicao.value = "neve"
+    } else if (response.value.description == "céu limpo"){
+      condicao.value = "céu limpo"
     }
     console.log(response.data.description);
   } catch (error) {
@@ -57,6 +59,7 @@ watch(() => route.params.cidade, (novaCidade) => {
         <img v-else-if="condicao == 'tempestade com chuva'" alt="⛈️">
         <img v-else-if="condicao == 'garoa'" alt="🌧️">
         <img v-else-if="condicao == 'neve'" alt="🌨️">
+        <img v-else-if="condicao == 'céu limpo'" alt="☀️">
       </div>
       <div>Temperatura Mínima: {{ weatherData.min_temp }} °C</div>
       <div>Sensação Térmica: {{ weatherData.feels_like }} °C</div>
