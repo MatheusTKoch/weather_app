@@ -27,10 +27,12 @@ const pesquisaData = async (city) => {
       condicao.value = "neve";
     } else if (response.value.description == "céu limpo"){
       condicao.value = "céu limpo";
+    } else if (response.value.description == "nublado"){
+      condicao.value = "nublado";
     }
     console.log(response.data.description);
   } catch (error) {
-    if (error.response.status == "404") {
+    if (error && error.response.status == "404") {
       cidadeNaoEncontrada.value = true;
     }
     console.error('Error fetching weather data:', error);
@@ -60,6 +62,7 @@ watch(() => route.params.cidade, (novaCidade) => {
         <img v-else-if="condicao == 'garoa'" alt="🌧️">
         <img v-else-if="condicao == 'neve'" alt="🌨️">
         <img v-else-if="condicao == 'céu limpo'" alt="☀️">
+        <img v-else-if="condicao == 'nublado'" alt="🌥️">
       </div>
       <div>Temperatura Mínima: {{ weatherData.min_temp }} °C</div>
       <div>Sensação Térmica: {{ weatherData.feels_like }} °C</div>
