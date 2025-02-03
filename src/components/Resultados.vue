@@ -15,7 +15,7 @@ const pesquisaData = async (city) => {
   isLoading.value = true;
   weatherData.value = null;
   try {
-    const response = await axios.get('http://localhost:5000/resultado', {
+    const response = await axios.get('MatheusTK.pythonanywhere.com/resultado', {
       params: { city }
     });
     weatherData.value = response.data;
