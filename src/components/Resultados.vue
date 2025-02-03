@@ -8,8 +8,10 @@ const weatherData = ref(null);
 const isLoading = ref(false);
 const cidadeNaoEncontrada = ref(false);
 const condicao = ref('');
+const URL_API = process.meta.env.VITE_API_URL;
 
 const pesquisaData = async (city) => {
+  console.log(URL_API)
   isLoading.value = true;
   weatherData.value = null;
   try {
@@ -30,7 +32,6 @@ const pesquisaData = async (city) => {
     } else if (response.value.description == "nublado"){
       condicao.value = "nublado";
     }
-    console.log(response.data.description);
   } catch (error) {
     console.log(error)
     if (error && error.response.status == "404") {
