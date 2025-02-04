@@ -8,7 +8,6 @@ const weatherData = ref(null);
 const isLoading = ref(false);
 const cidadeNaoEncontrada = ref(false);
 const condicao = ref('');
-const URL_API = process.meta.env.VITE_API_URL;
 
 const pesquisaData = async (city) => {
   console.log(URL_API)
