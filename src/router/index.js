@@ -11,7 +11,7 @@ const router = createRouter({
       component: App,
     },
     {
-      path: 'weather_app/resultado/:cidade',
+      path: '/weather_app/resultado/:cidade',
       name: 'Resultado',
       component: Resultados,
       props: true,
