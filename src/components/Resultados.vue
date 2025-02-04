@@ -10,7 +10,6 @@ const cidadeNaoEncontrada = ref(false);
 const condicao = ref('');
 
 const pesquisaData = async (city) => {
-  console.log(URL_API)
   isLoading.value = true;
   weatherData.value = null;
   try {
