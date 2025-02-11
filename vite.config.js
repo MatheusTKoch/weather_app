@@ -7,6 +7,9 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: '/weather_app/',
   assetsInclude: ['**/*.Vue'],
+  build: {
+    outDir: './docs'
+  },
   server: {
     fs: {
       cachedChecks: false,
