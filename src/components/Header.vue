@@ -22,9 +22,6 @@ onMounted(() => {
       <div class="titulo">Weather App</div>
     </RouterLink>
     <div class="clock">{{ currentTime }}</div>
-    <div class="search">
-      <img src="../components/icons/search.png" alt="Search icon" class="image">
-    </div>
   </div>
 </template>
 
@@ -62,13 +59,6 @@ onMounted(() => {
   font-family: "Open Sans", sans-serif;
   margin-right: 4rem; 
   margin-left: auto; 
-}
-
-.search {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(20px, 3vw, 30px);
 }
 
 .image {
