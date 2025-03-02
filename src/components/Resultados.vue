@@ -94,7 +94,27 @@ watch(() => route.params.cidade, (novaCidade) => {
   backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
-  transform: translateX(50%);
+  transform: translateX(18%);
+}
+
+@media (min-width: 1440px) {
+  .card {
+    max-width: 550px;
+  }
+  
+  .content {
+    min-height: 200px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .card {
+    max-width: 650px;
+  }
+  
+  .content {
+    min-height: 220px;
+  }
 }
 
 .content {

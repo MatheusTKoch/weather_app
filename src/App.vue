@@ -30,7 +30,7 @@ function handleCidade(param) {
   align-items: center;
   min-height: calc(100vh - 160px);
   width: 100%;
-  padding: 2rem; 
+  padding: 2rem;
 }
 
 .content-wrapper {
@@ -40,8 +40,23 @@ function handleCidade(param) {
   justify-content: center;
   gap: 2rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
+  transform: translateX(25%); 
+}
+
+@media (min-width: 1440px) {
+  .content-wrapper {
+    max-width: 700px;
+    transform: translateX(15%);
+  }
+}
+
+@media (min-width: 1920px) {
+  .content-wrapper {
+    max-width: 800px;
+    transform: translateX(10%);
+  }
 }
 
 @media (max-width: 768px) {
@@ -54,6 +69,7 @@ function handleCidade(param) {
   .content-wrapper {
     gap: 1.5rem;
     max-width: 450px;
+    transform: translateX(20%);
   }
 }
 
@@ -67,6 +83,7 @@ function handleCidade(param) {
   .content-wrapper {
     gap: 1rem;
     max-width: 350px;
+    transform: translateX(15%);
   }
 }
 </style>

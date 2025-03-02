@@ -53,7 +53,7 @@ function pesquisaCidade() {
   width: 100%;
   max-width: 450px; 
   margin: 0 auto;
-  transform: translateX(50%);
+  transform: translateX(18%);
 }
 
 .input {
@@ -145,6 +145,18 @@ function pesquisaCidade() {
   .search-icon {
     width: 20px;
     height: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .search-container {
+    max-width: 550px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .search-container {
+    max-width: 650px;
   }
 }
 </style>
