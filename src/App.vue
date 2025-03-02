@@ -30,7 +30,7 @@ function handleCidade(param) {
   align-items: center;
   min-height: calc(100vh - 160px);
   width: 100%;
-  padding: 2rem;
+  padding: 2rem; 
 }
 
 .content-wrapper {
@@ -40,7 +40,7 @@ function handleCidade(param) {
   justify-content: center;
   gap: 2rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -48,11 +48,12 @@ function handleCidade(param) {
   .main-content {
     min-height: calc(100vh - 140px);
     padding: 1.5rem;
+    margin-left: 1.5rem;
   }
   
   .content-wrapper {
     gap: 1.5rem;
-    max-width: 500px;
+    max-width: 450px;
   }
 }
 
@@ -60,11 +61,12 @@ function handleCidade(param) {
   .main-content {
     min-height: calc(100vh - 120px);
     padding: 1rem;
+    margin-left: 1rem;
   }
   
   .content-wrapper {
     gap: 1rem;
-    max-width: 400px;
+    max-width: 350px;
   }
 }
 </style>

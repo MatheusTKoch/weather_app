@@ -85,8 +85,8 @@ watch(() => route.params.cidade, (novaCidade) => {
 <style scoped>
 .card {
   position: relative;
-  width: 90%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 450px;
   margin: 0 auto;
   padding: 1.5rem;
   box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
@@ -94,6 +94,7 @@ watch(() => route.params.cidade, (novaCidade) => {
   backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
+  transform: translateX(50%);
 }
 
 .content {

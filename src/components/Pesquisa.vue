@@ -41,22 +41,19 @@ function pesquisaCidade() {
 
 <style scoped>
 .pesquisa {
-  position: relative; 
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  margin-top: 80px;
-  z-index: 10;
-  margin-bottom: 1rem;
+  padding: 0 1rem;
 }
 
 .search-container {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 450px; 
   margin: 0 auto;
+  transform: translateX(50%);
 }
 
 .input {
