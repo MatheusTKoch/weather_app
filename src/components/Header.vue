@@ -19,7 +19,7 @@ onMounted(() => {
 <template>
   <Toolbar class="header">
     <template #start>
-      <RouterLink to="/" class="title-link">
+      <RouterLink to="/weather_app/" class="title-link">
         <span class="titulo">
           <i class="pi pi-cloud mr-2"></i>
           Weather App
