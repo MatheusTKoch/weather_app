@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted} from 'vue';
+import { ref, onMounted } from 'vue';
 
 const currentTime = ref("");
 
@@ -17,12 +17,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="header">
-    <RouterLink to="/" class="title-link">
-      <div class="titulo">Weather App</div>
-    </RouterLink>
-    <div class="clock">{{ currentTime }}</div>
-  </div>
+  <Toolbar class="header">
+    <template #start>
+      <RouterLink to="/" class="title-link">
+        <span class="titulo">
+          <i class="pi pi-cloud mr-2"></i>
+          Weather App
+        </span>
+      </RouterLink>
+    </template>
+    <template #end>
+      <div class="clock-container">
+        <i class="pi pi-clock mr-2"></i>
+        <span class="clock">{{ currentTime }}</span>
+      </div>
+    </template>
+  </Toolbar>
 </template>
 
 <style scoped>
@@ -31,14 +41,16 @@ onMounted(() => {
   width: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
-  backdrop-filter: blur(2px);
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 0.75rem 1.5rem; 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 3rem; 
+  background-color: var(--surface-section);
+  backdrop-filter: blur(8px);
+  border: none;
+  z-index: 1000;
+}
+
+.header::v-deep(.p-toolbar) {
+  background: transparent;
+  border: none;
+  padding: 0.75rem 1.5rem;
 }
 
 .title-link {
@@ -46,45 +58,65 @@ onMounted(() => {
 }
 
 .titulo {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 200;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-family);
+  font-weight: 500;
   font-size: clamp(1.5rem, 3vw, 2rem);
-  color: whitesmoke;
+  color: var(--green-100);
+}
+
+.titulo i {
+  color: var(--green-500);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
+
+.clock-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--green-100);
 }
 
 .clock {
-  font-weight: 200;
+  font-weight: 400;
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  color: whitesmoke;
-  font-family: "Open Sans", sans-serif;
-  margin-right: 4rem; 
-  margin-left: auto; 
+  font-family: var(--font-family);
 }
 
-.image {
-  width: 100%;
-  height: auto;
+.pi-clock {
+  color: var(--green-500);
+  font-size: clamp(1rem, 2vw, 1.4rem);
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 0.6rem 1.2rem; 
+  .header::v-deep(.p-toolbar) {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .titulo {
+    font-size: 1.4rem;
   }
 
   .clock {
-    margin-right: 0.5rem; 
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .header {
+  .header::v-deep(.p-toolbar) {
+    padding: 0.5rem;
     flex-direction: column;
-    padding: 0.75rem 0.5rem;
-    gap: 0.3rem; 
+    gap: 0.5rem;
+  }
+
+  .titulo {
+    font-size: 1.3rem;
   }
 
   .clock {
-    margin: 0;
+    font-size: 1.1rem;
   }
 }
 </style>

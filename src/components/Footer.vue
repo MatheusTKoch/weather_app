@@ -1,5 +1,4 @@
 <script setup>
-
 </script>
 
 <template>
@@ -15,7 +14,7 @@
           class="social-button"
           v-tooltip.top="'Github'"
           @click="() => window.open('https://github.com/MatheusTKoch', '_blank')"
-        ></Button>
+        />
         <Button
           icon="pi pi-linkedin"
           rounded
@@ -25,7 +24,7 @@
           class="social-button"
           v-tooltip.top="'LinkedIn'"
           @click="() => window.open('https://www.linkedin.com/in/matheus-trilha-koch-712806162/', '_blank')"
-        ></Button>
+        />
       </div>
     </template>
   </Toolbar>
@@ -37,7 +36,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: var(--surface-ground);
+  background-color: var(--surface-section);
   backdrop-filter: blur(8px);
   border: none;
   padding: 0.5rem 0;
@@ -59,19 +58,21 @@
 
 .social-button {
   transition: all 0.2s ease;
-  background-color: var(--green-900) !important;
   width: 2.5rem;
   height: 2.5rem;
 }
 
 .social-button:hover {
   transform: scale(1.1);
-  background-color: var(--green-800) !important;
 }
 
 .social-button::v-deep(.p-button-icon) {
   font-size: 1.2rem;
   color: var(--green-100);
+}
+
+.social-button:hover::v-deep(.p-button-icon) {
+  color: var(--green-500);
 }
 
 @media (max-width: 768px) {
