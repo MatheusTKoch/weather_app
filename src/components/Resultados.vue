@@ -83,6 +83,21 @@ watch(() => route.params.cidade, (novaCidade) => {
 </template>
 
 <style scoped>
+.weather-card {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+
+:deep(.p-card) {
+  background: var(--surface-section);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--surface-border);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
 .card {
   position: relative;
   width: 100%;
@@ -94,10 +109,13 @@ watch(() => route.params.cidade, (novaCidade) => {
   backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
-  transform: translateX(18%);
 }
 
 @media (min-width: 1440px) {
+  .weather-card {
+    max-width: 550px;
+  }
+  
   .card {
     max-width: 550px;
   }
@@ -108,12 +126,52 @@ watch(() => route.params.cidade, (novaCidade) => {
 }
 
 @media (min-width: 1920px) {
+  .weather-card {
+    max-width: 650px;
+  }
+  
   .card {
     max-width: 650px;
   }
   
   .content {
     min-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .weather-card {
+    max-width: 400px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .content {
+    min-height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-card {
+    max-width: 100%;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .content {
+    min-height: 140px;
+    padding: 0.5rem;
+  }
+
+  .data-item {
+    padding: 0.4rem;
   }
 }
 
@@ -167,30 +225,5 @@ watch(() => route.params.cidade, (novaCidade) => {
 .weather-icon img {
   width: clamp(24px, 4vw, 32px);
   height: auto;
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 85%;
-  }
-
-  .content {
-    min-height: 160px;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    width: 90%;
-  }
-
-  .content {
-    min-height: 140px;
-    padding: 0.5rem;
-  }
-
-  .data-item {
-    padding: 0.4rem;
-  }
 }
 </style>

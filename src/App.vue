@@ -31,31 +31,30 @@ function handleCidade(param) {
   min-height: calc(100vh - 160px);
   width: 100%;
   padding: 2rem;
+  margin-top: 80px;
+  transform: translateX(15vw);
 }
 
 .content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 2rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
-  transform: translateX(25%); 
+  padding: 0 1rem;
 }
 
 @media (min-width: 1440px) {
   .content-wrapper {
     max-width: 700px;
-    transform: translateX(15%);
   }
 }
 
 @media (min-width: 1920px) {
   .content-wrapper {
     max-width: 800px;
-    transform: translateX(10%);
   }
 }
 
@@ -63,27 +62,22 @@ function handleCidade(param) {
   .main-content {
     min-height: calc(100vh - 140px);
     padding: 1.5rem;
-    margin-left: 1.5rem;
+    margin-top: 50px;
   }
-  
+
   .content-wrapper {
     gap: 1.5rem;
-    max-width: 450px;
-    transform: translateX(20%);
   }
 }
 
 @media (max-width: 480px) {
   .main-content {
-    min-height: calc(100vh - 120px);
     padding: 1rem;
-    margin-left: 1rem;
+    margin-top: 40px;
   }
-  
+
   .content-wrapper {
     gap: 1rem;
-    max-width: 350px;
-    transform: translateX(15%);
   }
 }
 </style>

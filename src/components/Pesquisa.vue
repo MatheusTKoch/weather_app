@@ -49,7 +49,6 @@ function pesquisaCidade() {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  margin-top: 1rem;
 }
 
 .search-container {
@@ -138,7 +137,8 @@ function pesquisaCidade() {
   }
 
   .search-container {
-    max-width: 300px;
+    max-width: 100%;
+    padding: 0 0.5rem;
   }
   
   :deep(.p-inputtext) {
